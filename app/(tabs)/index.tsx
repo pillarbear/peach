@@ -4,7 +4,6 @@ import { router } from 'expo-router';
 import { usePrivy } from '@privy-io/expo';
 
 import { Token } from '@/types/token';
-import { useAuth } from '@/contexts/AuthContext';
 
 const tokens: Token[] = [
   { id: '1', name: 'Token A' },
@@ -13,7 +12,6 @@ const tokens: Token[] = [
 ];
 
 export default function HomeScreen() {
-  const {isSignedIn, signOut} = useAuth();
   const { user } = usePrivy();
 
   const renderToken = ({ item }: { item: Token }) => (
@@ -42,7 +40,7 @@ export default function HomeScreen() {
         <Button
           title='Sign In'
           onPress={() => {
-            router.push('/profile/LoginScreen');
+            router.push('/profile/login');
           }}
         />
       </>
