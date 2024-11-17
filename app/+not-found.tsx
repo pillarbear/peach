@@ -5,7 +5,10 @@ import { StyleSheet, View, Text } from 'react-native';
 export default function NotFoundScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
+      <Stack.Screen options={{ 
+        title: 'Oops!',
+        headerBackTitleVisible: false,
+      }} />
       <View style={styles.container}>
         <Text>This screen doesn't exist.</Text>
         <Link href="/" style={styles.link}>

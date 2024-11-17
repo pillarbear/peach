@@ -15,38 +15,11 @@ export function TabContent({ activeTab, id, name }: TabContentProps) {
       return (
         <View style={styles.content}>
           <Text style={styles.contentText}>Overview Content</Text>
-          <Text>Token ID: {id}</Text>
-          <Text>Token Name: {name}</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
-          <Text>Dummy</Text>
+          <Text style={styles.contentText}>Token ID: {id}</Text>
+          <Text style={styles.contentText}>Token Name: {name}</Text>
+          {Array(50).fill(null).map((_, i) => (
+            <Text key={i} style={styles.contentText}> content {i + 1}</Text>
+          ))}
         </View>
       );
     case 'chart':

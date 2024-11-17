@@ -4,7 +4,7 @@ import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
 import { router, Stack } from "expo-router";
 import { useAuth } from "@/contexts/AuthContext";
 
-export default function LoginScreen() {
+export default function Login2Screen() {
   const { signIn } = useAuth();
 
   const handleLogin = () => {

@@ -19,7 +19,6 @@ import { TabBar } from '@/components/token/TabBar';
 import { TabContent } from '@/components/token/TabContent';
 import { TabType } from '@/types/token';
 
-
 export default function TokenScreen() {
   const { id, name } = useLocalSearchParams();
   const [scrollY] = useState(new Animated.Value(0));
@@ -27,14 +26,8 @@ export default function TokenScreen() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
 
   const headerOpacity = scrollY.interpolate({
-    inputRange: [0, 100],
+    inputRange: [0, 200],
     outputRange: [0, 1],
-    extrapolate: 'clamp',
-  });
-
-  const contentOpacity = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [1, 0],
     extrapolate: 'clamp',
   });
 
@@ -99,14 +92,13 @@ export default function TokenScreen() {
         )}
         scrollEventThrottle={16}
       >
-        {/* Top content that fades out */}
-        <Animated.View style={[styles.topContent, { opacity: contentOpacity }]}>
+        <View style={styles.topContent}>
           <Image
             source={require('@/assets/images/react-logo.png')}
             style={styles.logo}
           />
           <Text style={styles.title}>{name}</Text>
-        </Animated.View>
+        </View>
 
         <View style={styles.stickyHeader}>
           <TabBar activeTab={activeTab} onTabPress={setActiveTab} />
@@ -134,7 +126,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stickyHeader: {
-    zIndex: 1,
     backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
